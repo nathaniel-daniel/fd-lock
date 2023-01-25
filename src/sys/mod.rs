@@ -12,6 +12,8 @@ cfg_if! {
         pub(crate) use std::os::windows::prelude::AsRawHandle as AsRaw;
     } else {
         mod unsupported;
-        pub use unsupported;
+        pub use unsupported::*;
+        #[doc(hidden)]
+        pub trait AsRaw {}
     }
 }

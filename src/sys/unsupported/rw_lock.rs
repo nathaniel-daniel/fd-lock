@@ -1,16 +1,15 @@
-use std::io::{self, Error, ErrorKind};
-use std::os::unix::io::AsRawFd;
+use std::io::{self, Error};
 
 use super::{RwLockReadGuard, RwLockWriteGuard};
 
 #[derive(Debug)]
-pub struct RwLock<T: AsRawFd> {
-    pub(crate) inner: T,
+pub struct RwLock<T> {
+    pub(crate) _inner: T,
 }
 
-impl<T: AsRawFd> RwLock<T> {
+impl<T> RwLock<T> {
     #[inline]
-    pub fn new(inner: T) -> Self {
+    pub fn new(_inner: T) -> Self {
         panic!("target unsupported")
     }
 
